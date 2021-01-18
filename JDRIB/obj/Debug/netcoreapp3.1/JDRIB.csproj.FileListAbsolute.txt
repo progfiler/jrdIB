@@ -1,0 +1,13 @@
+C:\dev\csharp\JDRIB\JDRIB\obj\Debug\netcoreapp3.1\JDRIB.AssemblyInfoInputs.cache
+C:\dev\csharp\JDRIB\JDRIB\obj\Debug\netcoreapp3.1\JDRIB.AssemblyInfo.cs
+C:\dev\csharp\JDRIB\JDRIB\obj\Debug\netcoreapp3.1\JDRIB.csproj.CoreCompileInputs.cache
+C:\dev\csharp\JDRIB\JDRIB\bin\Debug\netcoreapp3.1\JDRIB.exe
+C:\dev\csharp\JDRIB\JDRIB\bin\Debug\netcoreapp3.1\JDRIB.deps.json
+C:\dev\csharp\JDRIB\JDRIB\bin\Debug\netcoreapp3.1\JDRIB.runtimeconfig.json
+C:\dev\csharp\JDRIB\JDRIB\bin\Debug\netcoreapp3.1\JDRIB.runtimeconfig.dev.json
+C:\dev\csharp\JDRIB\JDRIB\bin\Debug\netcoreapp3.1\JDRIB.dll
+C:\dev\csharp\JDRIB\JDRIB\bin\Debug\netcoreapp3.1\JDRIB.pdb
+C:\dev\csharp\JDRIB\JDRIB\obj\Debug\netcoreapp3.1\JDRIB.dll
+C:\dev\csharp\JDRIB\JDRIB\obj\Debug\netcoreapp3.1\JDRIB.pdb
+C:\dev\csharp\JDRIB\JDRIB\obj\Debug\netcoreapp3.1\JDRIB.genruntimeconfig.cache
+C:\dev\csharp\JDRIB\JDRIB\obj\Debug\netcoreapp3.1\JDRIB.csprojAssemblyReference.cache
