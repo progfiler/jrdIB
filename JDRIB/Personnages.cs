@@ -11,6 +11,7 @@ namespace JDRIB
         public string Name { get; set; }
         public double CoefAtk { get; set; }
         public double CoefDef { get; set; }
+        public Personnages() { }
         public Personnages(double life, double damage, int nameLength, double coefAtk, double coefDef)
         {
             Life = life;

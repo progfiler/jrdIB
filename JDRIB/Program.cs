@@ -7,14 +7,42 @@ namespace JDRIB
     {
         static void Main(string[] args)
         {
-            List<Personnages> personnages = new List<Personnages>() {
-                new Orque(200, 25, 5),
-                new Humain(80, 16, 3),
-                new Nain(100, 35, 8),
-                new Elf(70, 28, 7)
-            };
-            Monde monde = new Monde(personnages);
-            monde.start();
+            Menu menu = new Menu();
+            menu.start();
+
+            /*
+             * 1 Faire une demande sur le terminale sur le nmbre de personnages a ajouter  ainsi que 
+             * les caractéristiques à entrer pour chaque personnages
+             * 
+             * 2 Ajouter des specs sur les races :
+             * 
+             *          - humain : lancer des boules de feux
+             *                  - spec d'atk 
+             *                  > aléatoirement elle multiplie sa force par 0.5 
+             *          - Orque : Il se transforme en geant
+             *                  - spec de def =
+             *                  > aleatoirement elle lui permet diviser le damage de l'attaquant
+             *                    par 2 
+             *          - Nain : Il manie la hache avec perfection 
+             *                  - spec d'atk 
+             *                  > aléatoirement elle multiplie sa force par 0.25 
+             *          - Elf : peut se rendre invisible
+             *                  - spec de def =
+             *                  > aleatoirement elle lui permet de ne subir aucun coup d'atk 
+             *                  
+             * 3 On va diviser le jeux en deux parties 
+             *  - La partie ou tt le monde se tape sur la gueule => battle royal 
+             *  - Partie Zombie 
+             */
+
+            //List<Personnages> personnages = new List<Personnages>() {
+            //    new Orque(200, 25, 5),
+            //    new Humain(80, 16, 3),
+            //    new Nain(100, 35, 8),
+            //    new Elf(70, 28, 7)
+            //};
+            //Monde monde = new Monde(personnages);
+            //monde.start();
         }
     }
 }
