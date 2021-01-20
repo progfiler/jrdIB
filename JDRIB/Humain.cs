@@ -6,9 +6,8 @@ namespace JDRIB
 {
     class Humain : Personnages
     {
-        public Humain() { }
-        public Humain(double life, double damage, int nameLength, double coefAtk = 0.44, double coefDef = 0.13) : base(life, damage, nameLength, coefAtk, coefDef)
-        {
+        public Humain() {
+            this.Specs = new Specs("Il peut lancer des boules de feux", true, 0.5, Process.Multiplicate);
         }
     }
 }

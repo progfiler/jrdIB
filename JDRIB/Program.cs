@@ -15,7 +15,6 @@ namespace JDRIB
              * les caractéristiques à entrer pour chaque personnages
              * 
              * 2 Ajouter des specs sur les races :
-             * 
              *          - humain : lancer des boules de feux
              *                  - spec d'atk 
              *                  > aléatoirement elle multiplie sa force par 0.5 
@@ -32,7 +31,18 @@ namespace JDRIB
              *                  
              * 3 On va diviser le jeux en deux parties 
              *  - La partie ou tt le monde se tape sur la gueule => battle royal 
-             *  - Partie Zombie 
+             *  - Partie Zombie
+             *     - On choisi X héros qui vont affronter X Zombies 
+             *          Qui va gagner ? 
+             *  
+             * 4 - Amélioration du mode zombie : 
+             * Mode simple -> celui fait dans le 3
+             * Mode par vague : 
+             *      Il faur gérer des vagues de zombie 
+             *      On choisis X Heros qui vont affronter des vagues de zombies 
+             *      Le niveau des zombies augmente toutes les 5 vagues 
+             *      Le nombre de zombies augmente à chaque vagues
+             *      Les héros peuvent récuprer un % de leurs vie à chaque vagues
              */
 
             //List<Personnages> personnages = new List<Personnages>() {
