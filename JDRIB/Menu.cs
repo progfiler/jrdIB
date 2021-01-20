@@ -7,7 +7,6 @@ namespace JDRIB
     class Menu
     {
         List<Personnages> personnages = new List<Personnages>();
-        PersonnagesBuilder personnagesBuilder = new PersonnagesBuilder();
         public void start()
         {
             Utils.WriteLine("#");
@@ -41,57 +40,49 @@ namespace JDRIB
                 Console.WriteLine("Ce mode n'existe pas :( ");
                 selectMode();
             }
-
         }
 
         private void initializeZombieGame()
         {
-            throw new NotImplementedException();
+            Utils.WriteLine("#");
+            GeneratePersonnages();
+            startGame(GameMode.Zombie);
         }
 
         private void initializeNormalGame()
         {
             Utils.WriteLine("#");
             Console.WriteLine("Nous allons ajouter des personnages à notre jeu :)");
+            GeneratePersonnage();
+            startGame(GameMode.Normal);
+        }
+        private void GeneratePersonnages()
+        {
+            personnages = PersonnesFactory.InitializeListOfPersonnages();
+            personnages.ForEach(p =>
+            {
+                Console.WriteLine(p.Name + " : " + p.Life + " | " + p.Damage);
+            });
+        }
+
+        private void GeneratePersonnage()
+        {
             bool select = true;
             do
             {
-                // Créer un personnage 
-                Personnages personnage = personnagesBuilder
-                    .setType(selectedPerson())
-                    .setName()
-                    .setLife()
-                    .setDamage()
-                    .setAtk()
-                    .setDef()
-                    .get();
-                personnages.Add(personnage);
-                Console.WriteLine("Vous venez d'ajouter " + personnage.Name + " à votre jeu.");
+                personnages.Add(PersonnesFactory.InitializeOnePersonnage());
                 select = addNewPerson();
             } while (select);
-            startGame();
         }
 
-        private void startGame()
+        private void startGame(GameMode mode)
         {
+            // Suivant le mode je change me mode de jeu 
             if (personnages.Count > 1)
             {
                 Monde monde = new Monde(personnages);
                 monde.start();
             }
-        }
-
-        private int selectedPerson()
-        {
-            Utils.WriteLine("#");
-            Console.WriteLine("Indiquez la race de votre personnage");
-            Console.WriteLine("[ 1 ] - Humain");
-            Console.WriteLine("[ 2 ] - Nain");
-            Console.WriteLine("[ 3 ] - Elf");
-            Console.WriteLine("[ 4 ] - Orque");
-            Console.WriteLine("Indiquez votre choix : 1,2,3,4 : ");
-            string choice = Console.ReadLine();
-            return Int32.Parse(choice);
         }
 
         private bool addNewPerson()
