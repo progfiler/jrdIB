@@ -18,10 +18,38 @@ namespace JDRIB
             ConsoleKeyInfo start = Console.ReadKey();
             if (start != null)
             {
-                initializeGame();
+                selectMode();
             }
         }
-        private void initializeGame()
+        private void selectMode()
+        {
+            Utils.WriteLine(".");
+            Console.WriteLine("Choisissez votre mode de jeu : ");
+            Console.WriteLine("[ N ] - Mode Normal");
+            Console.WriteLine("[ Z ] - Mode Zombie");
+            string mode = Console.ReadLine();
+            if (mode.ToLower() == "n")
+            {
+                Console.WriteLine("Mode normal activé ....");
+                initializeNormalGame();
+            } else if (mode.ToLower() == "z")
+            {
+                Console.WriteLine("Mode zombie activé ....");
+                initializeZombieGame();
+            } else
+            {
+                Console.WriteLine("Ce mode n'existe pas :( ");
+                selectMode();
+            }
+
+        }
+
+        private void initializeZombieGame()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void initializeNormalGame()
         {
             Utils.WriteLine("#");
             Console.WriteLine("Nous allons ajouter des personnages à notre jeu :)");

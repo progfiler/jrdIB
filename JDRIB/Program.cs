@@ -10,31 +10,28 @@ namespace JDRIB
             Menu menu = new Menu();
             menu.start();
 
-            /*
-             * 1 Faire une demande sur le terminale sur le nmbre de personnages a ajouter  ainsi que 
-             * les caractéristiques à entrer pour chaque personnages
-             * 
-             * 2 Ajouter des specs sur les races :
-             *          - humain : lancer des boules de feux
-             *                  - spec d'atk 
-             *                  > aléatoirement elle multiplie sa force par 0.5 
-             *          - Orque : Il se transforme en geant
-             *                  - spec de def =
-             *                  > aleatoirement elle lui permet diviser le damage de l'attaquant
-             *                    par 2 
-             *          - Nain : Il manie la hache avec perfection 
-             *                  - spec d'atk 
-             *                  > aléatoirement elle multiplie sa force par 0.25 
-             *          - Elf : peut se rendre invisible
-             *                  - spec de def =
-             *                  > aleatoirement elle lui permet de ne subir aucun coup d'atk 
+            /* 
              *                  
              * 3 On va diviser le jeux en deux parties 
-             *  - La partie ou tt le monde se tape sur la gueule => battle royal 
              *  - Partie Zombie
              *     - On choisi X héros qui vont affronter X Zombies 
              *          Qui va gagner ? 
-             *  
+             *  On revoit le menu du début pour proposer 2 modes de jeux 
+             *  mode 1 : 
+             *      - La partie ou tt le monde se tape sur la gueule => battle royal 
+             *  mode 2 : 
+             *      - mode Zombie :
+             *          - Demander à l'utilisateur de générer X personnages 
+             *              (Nain, Elf, Humain ou Orque)
+             *              - Ces personnages auront une Vie, des dégats et des coefs aléatoires
+             *          - Demander à l'utilisateur de générer X Zombies 
+             *              - Les zombies auront une Vie, des dégats et des coefs aléatoires
+             *          - On démarre le jeu 
+             *              - Les héros peuvent attaquer les zombies 
+             *              - les zombies peuvent attaquer les héros
+             *              - le dernier héros survivant gagne SI il n'y a plus de zombies
+             *                  sinon c'est les zombies qui gagnent
+             *                  
              * 4 - Amélioration du mode zombie : 
              * Mode simple -> celui fait dans le 3
              * Mode par vague : 
@@ -43,16 +40,12 @@ namespace JDRIB
              *      Le niveau des zombies augmente toutes les 5 vagues 
              *      Le nombre de zombies augmente à chaque vagues
              *      Les héros peuvent récuprer un % de leurs vie à chaque vagues
+             *      
+             *     
+             * 5 - Persister les parties dans une BDD 
+             * 
              */
 
-            //List<Personnages> personnages = new List<Personnages>() {
-            //    new Orque(200, 25, 5),
-            //    new Humain(80, 16, 3),
-            //    new Nain(100, 35, 8),
-            //    new Elf(70, 28, 7)
-            //};
-            //Monde monde = new Monde(personnages);
-            //monde.start();
         }
     }
 }
