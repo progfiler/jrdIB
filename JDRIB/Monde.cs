@@ -10,10 +10,6 @@ namespace JDRIB
         public List<Personnages> personnages = new List<Personnages>();
         public Monde(List<Personnages> personnages)
         {
-            //foreach (Personnages attacker in personnages)
-            //{
-            //    System.Console.WriteLine(attacker.Name + attacker.CoefAtk);
-            //}
             this.personnages = personnages;              
         }
         public void start ()
@@ -38,10 +34,13 @@ namespace JDRIB
         }
         private void fight(Personnages attacker, Personnages opponent)
         {
-            double coef = Utils.randomDouble();
-            if (attacker.CoefAtk > coef)
+            double randomCoef = Utils.randomDouble();
+            Console.WriteLine("Un combat se prépare ....");
+            Console.WriteLine(attacker.Name + " va affronter " + opponent.Name);
+
+            if (attacker.CoefAtk > randomCoef)
             {
-                System.Console.WriteLine(opponent.Name + " va subir " + attacker.Damage + " dégats, mais " + opponent.Name + " peu encore se défendre !!!");
+                System.Console.WriteLine(attacker.Name + " a réussi son attaque. C'est au tour de " + opponent.Name + " de se défendre");
                 CaculateDefense(attacker, opponent);
                 System.Console.WriteLine("Suite à l'attaque, " + opponent.Name + " lui reste que " + opponent.Life + " de vie");
                 if (opponent.Life <= 0)
@@ -51,25 +50,25 @@ namespace JDRIB
             } else
             {
                 System.Console.WriteLine("Ho Ho Ho " + attacker.Name + " n'a pas pu attaquer son adversaire.");
-                System.Console.WriteLine("Le coeficient d'attaque de " + attacker.Name + " qui est de " + attacker.CoefAtk + " est inférieur à " + coef);
             }
 
         }
         private void CaculateDefense(Personnages attacker, Personnages opponent)
         {
-            double coef = Utils.randomDouble();
+            double randomDouble = Utils.randomDouble();
+            double attackerDamage = attacker.Damage;
             System.Console.WriteLine(opponent.Name + " se prépare à défendre ....");
-            if (opponent.CoefDef > coef)
+            if (opponent.CoefDef > randomDouble)
             {
                 System.Console.WriteLine(opponent.Name + " c'est défendu !!!");
-                double reduceDamage = attacker.Damage * opponent.CoefDef;
-                attacker.Damage = attacker.Damage - Math.Round(reduceDamage);
-                System.Console.WriteLine("L'attaque a été réduite à " + attacker.Damage);
+                double reduceDamage = attackerDamage * opponent.CoefDef;
+                attackerDamage = attackerDamage - Math.Round(reduceDamage);
+                System.Console.WriteLine("L'attaque a été réduite à " + attackerDamage);
             } else
             {
                 System.Console.WriteLine(opponent.Name +  " n'a pas réussi à ce défendre !!");
             }
-            opponent.ReceiveDamage(attacker.Damage);
+            opponent.ReceiveDamage(attackerDamage);
         }
         private Personnages returnOppenent(Personnages currentPersonnage)
         {
