@@ -46,7 +46,7 @@ namespace JDRIB
 
         private void startGame()
         {
-            if (personnages.Count > 2)
+            if (personnages.Count > 1)
             {
                 Monde monde = new Monde(personnages);
                 monde.start();

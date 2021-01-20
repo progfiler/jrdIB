@@ -20,7 +20,7 @@ namespace JDRIB
             this.Name = GenerateName(nameLength);
             this.CoefAtk = coefAtk;
             this.CoefDef = coefDef;
-            this.specs = specs;
+            this.Specs = specs;
         }
 
         public Personnages(double life, double damage)
@@ -45,6 +45,24 @@ namespace JDRIB
         internal void ReceiveDamage(double damage)
         {
             this.Life = this.Life - damage;
+        }
+
+        internal double CalculateSpecs(double attackerDamage)
+        {
+            double a = Utils.randomDouble();
+            double b = Utils.randomDouble();
+            if (a > b)
+            {
+                Console.WriteLine(this.Name + " a réussi à utiliser sa spec !!!");
+                Console.WriteLine("Avant l'utilisation de la spec, les dégats sont de " + attackerDamage);
+                attackerDamage = Specs.CalculateDamage(attackerDamage, this);
+                Console.WriteLine("Après l'utilisation de la spec, les dégats sont de " + attackerDamage);
+            }
+            else
+            {
+                Console.WriteLine(this.Name + " n'a pas réussi à utiliser sa spec !!!");
+            }
+            return attackerDamage;
         }
     }
 }

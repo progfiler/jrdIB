@@ -68,6 +68,13 @@ namespace JDRIB
             {
                 System.Console.WriteLine(opponent.Name +  " n'a pas réussi à ce défendre !!");
             }
+            Utils.WriteLine("*");
+            Console.WriteLine("Attention, nos personnages on des specs, voyont s'ils arrivent à les utiliser");
+            // On applique les specs
+            // personnage.calculateSpecs(attackerDamage, isAttacker = Boolean)
+            attackerDamage = attacker.CalculateSpecs(attackerDamage);
+            attackerDamage = opponent.CalculateSpecs(attackerDamage); 
+            Utils.WriteLine("*");
             opponent.ReceiveDamage(attackerDamage);
         }
         private Personnages returnOppenent(Personnages currentPersonnage)
