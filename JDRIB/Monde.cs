@@ -8,11 +8,13 @@ namespace JDRIB
     class Monde
     {
         public List<Personnages> personnages = new List<Personnages>();
+        public List<Personnages> Zombies { get; internal set; }
+
         public Monde(List<Personnages> personnages)
         {
             this.personnages = personnages;              
         }
-        public void start ()
+        public void start (GameMode gameMode)
         {
             System.Console.WriteLine("\n");
             foreach (Personnages attacker in personnages.ToList())
@@ -23,7 +25,7 @@ namespace JDRIB
             }   
             if (personnages.Count > 1)
             {
-                start();
+                start(gameMode);
             } else
             {
                 personnages.ForEach(p =>

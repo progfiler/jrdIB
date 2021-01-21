@@ -7,6 +7,7 @@ namespace JDRIB
     class Menu
     {
         List<Personnages> personnages = new List<Personnages>();
+        List<Personnages> zombies;
         public void start()
         {
             Utils.WriteLine("#");
@@ -58,11 +59,8 @@ namespace JDRIB
         }
         private void GeneratePersonnages()
         {
-            personnages = PersonnesFactory.InitializeListOfPersonnages();
-            personnages.ForEach(p =>
-            {
-                Console.WriteLine(p.Name + " : " + p.Life + " | " + p.Damage);
-            });
+            personnages = PersonnagesFactory.InitializeListOfPersonnages();
+            zombies = PersonnagesFactory.InitializeListOfZombies();
         }
 
         private void GeneratePersonnage()
@@ -70,18 +68,29 @@ namespace JDRIB
             bool select = true;
             do
             {
-                personnages.Add(PersonnesFactory.InitializeOnePersonnage());
+                personnages.Add(PersonnagesFactory.InitializeOnePersonnage());
                 select = addNewPerson();
             } while (select);
         }
 
         private void startGame(GameMode mode)
         {
-            // Suivant le mode je change me mode de jeu 
+            Monde monde = new Monde(personnages);
             if (personnages.Count > 1)
             {
-                Monde monde = new Monde(personnages);
-                monde.start();
+                switch(mode)
+                {
+                    case GameMode.Normal:
+                        monde.start(GameMode.Normal);
+                        break;
+                    case GameMode.Zombie:
+                        monde.Zombies = zombies;
+                        monde.start(GameMode.Zombie);
+                        break;
+                    default:
+                        Console.WriteLine("Ce mpode n'existe pas");
+                        break;
+                }
             }
         }
 

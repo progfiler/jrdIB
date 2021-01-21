@@ -32,6 +32,9 @@ namespace JDRIB
                 case PersonnagesType.Orque:
                     personnage = new Orque();
                     break;
+                case PersonnagesType.Zombie:
+                    personnage = new Zombie();
+                    break;
                 default:
                     personnage = new Humain();
                     break;

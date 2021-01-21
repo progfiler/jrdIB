@@ -5,7 +5,8 @@
         Humain,
         Elf,
         Nain,
-        Orque
+        Orque,
+        Zombie
     }
     enum GameMode
     {

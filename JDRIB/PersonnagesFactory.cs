@@ -5,7 +5,7 @@ using System.Text;
 
 namespace JDRIB
 {
-    class PersonnesFactory
+    class PersonnagesFactory
     {
         public static List<Personnages> InitializeListOfPersonnages()
         {
@@ -19,6 +19,10 @@ namespace JDRIB
         internal static Personnages InitializeOnePersonnage()
         {
             return GetPersonnage(defineType(), false);
+        }
+        internal static List<Personnages> InitializeListOfZombies()
+        {
+            return GetPersonnages(PersonnagesType.Zombie, RequestNumberOfPersonnage("de zombies"));
         }
         private static List<Personnages> GetPersonnages(PersonnagesType type, int nbr)
         {

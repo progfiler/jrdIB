@@ -44,6 +44,22 @@ namespace JDRIB
              *     
              * 5 - Persister les parties dans une BDD 
              * 
+             * 
+             * 6 - Trouver une solution pour founir une API 
+             *      Sauvegarder des persos en BDD  ? 
+             *      http://localhost:80/players
+             *           - GET : Liste des personnages
+             *           - POST init des personnages
+             * 
+             *      http://localhost:80/games => 
+             *          - GET : Liste des parties antérieurs
+             *          - GET /:id : Récupère le détail d'une partie
+             *          - POST : Sauvegarde une partie
+             *          - DELETE : Supprimer une partie 
+             *          *          
+             *       http://localhost:80/games/start => 
+             *          - POST : Lance une partie
+             *          argument (les personnages, le type de jeu)* 
              */
 
         }
