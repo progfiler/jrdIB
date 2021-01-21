@@ -75,17 +75,19 @@ namespace JDRIB
 
         private void startGame(GameMode mode)
         {
-            Monde monde = new Monde(personnages);
+           
             if (personnages.Count > 1)
             {
-                switch(mode)
+                switch (mode)
                 {
                     case GameMode.Normal:
-                        monde.start(GameMode.Normal);
+                        NormalGame normalGame = new NormalGame(this.personnages);
+                        Monde monde = new Monde(normalGame);
+                        monde.Start();
                         break;
                     case GameMode.Zombie:
-                        monde.Zombies = zombies;
-                        monde.start(GameMode.Zombie);
+                        //        monde.Zombies = zombies;
+                        //        monde.start();
                         break;
                     default:
                         Console.WriteLine("Ce mpode n'existe pas");
