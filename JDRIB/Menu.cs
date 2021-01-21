@@ -78,21 +78,21 @@ namespace JDRIB
            
             if (personnages.Count > 1)
             {
+                IGame game = new DefaultGame();
                 switch (mode)
                 {
                     case GameMode.Normal:
-                        NormalGame normalGame = new NormalGame(this.personnages);
-                        Monde monde = new Monde(normalGame);
-                        monde.Start();
+                        game = new NormalGame(this.personnages);
                         break;
                     case GameMode.Zombie:
-                        //        monde.Zombies = zombies;
-                        //        monde.start();
+                        game = new ZombieGame(this.personnages, this.zombies);
                         break;
                     default:
                         Console.WriteLine("Ce mpode n'existe pas");
                         break;
                 }
+                Monde monde = new Monde(game);
+                monde.Start();
             }
         }
 

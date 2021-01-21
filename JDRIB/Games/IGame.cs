@@ -8,6 +8,6 @@ namespace JDRIB
     {
         public List<Personnages> Personnages { get; }
         public void Start();
-        public string End();
+        public void End();
     }
 }

@@ -27,15 +27,19 @@ namespace JDRIB
             }
             else
             {
-                Personnages.ForEach(p =>
-                {
-                    System.Console.WriteLine("Le gagnant est : " + p.Name);
-                });
+                End();
             }
         }
-        public string End()
+        public void End()
         {
-            throw new NotImplementedException();
+            Utils.WriteLine(".");
+            Utils.WriteLine("*");
+            Personnages.ForEach(p =>
+            {
+                System.Console.WriteLine("Le gagnant est : " + p.Name);
+            });
+            Utils.WriteLine("*");
+            Utils.WriteLine(".");
         }
         private void Figth(Personnages attacker, Personnages opponent)
         {
@@ -91,5 +95,6 @@ namespace JDRIB
             }
             return opponent;
         }
+
     }
 }
