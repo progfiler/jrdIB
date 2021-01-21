@@ -78,7 +78,7 @@ namespace JDRIB
            
             if (personnages.Count > 1)
             {
-                IGame game = new DefaultGame();
+                IGame game = new Game();
                 switch (mode)
                 {
                     case GameMode.Normal:
