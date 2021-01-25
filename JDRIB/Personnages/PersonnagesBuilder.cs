@@ -105,7 +105,19 @@ namespace JDRIB
         {
             Utils.WriteLine("-");
             Console.WriteLine(txt);
-            return Convert.ToDouble(Console.ReadLine());
+            double result = 0;
+            try
+            {
+                 result = Convert.ToDouble(Console.ReadLine());
+            } catch (FormatException)
+            {
+                Console.WriteLine("Il nous faut un chiffre");
+                return requestData(txt);
+            } catch (OverflowException)
+            {
+                Console.WriteLine("Bim ! tu viens de péter ta ram");
+            }
+            return result;
         }
     }
 }

@@ -57,7 +57,7 @@ namespace JDRIB
             Console.WriteLine("[ 3 ] - Elf");
             Console.WriteLine("[ 4 ] - Orque");
             Console.WriteLine("Indiquez votre choix : 1,2,3,4 : ");
-            int choice = Int32.Parse(Console.ReadLine());
+            int choice = getChoice();
             PersonnagesType personnagesType;
             switch (choice) {
                 case 1:
@@ -82,7 +82,31 @@ namespace JDRIB
         {
             Utils.WriteLine("~");
             Console.WriteLine("Combien " + v + " voulez-vous ?");
-            return Convert.ToInt32(Console.ReadLine());
+            int result  = 0 ;
+            try
+            {
+                result = Convert.ToInt32(Console.ReadLine());
+            } catch (FormatException)
+            {
+                Console.WriteLine("Il nous faut un chiffre");
+                return RequestNumberOfPersonnage(v);
+            }
+            return result;
+        }
+
+        private static int getChoice()
+        {
+            int choice = 0;
+            try
+            {
+                choice = Int32.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Je veux absolument un chiffre");
+                return getChoice();
+            }
+            return choice;
         }
     }
 }

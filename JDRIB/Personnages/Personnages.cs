@@ -4,7 +4,7 @@ using System.Text;
 
 namespace JDRIB
 {
-    class Personnages
+    abstract class Personnages
     {
         public double Life { get; set; }
         public double Damage { get; set; }

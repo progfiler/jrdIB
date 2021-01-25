@@ -1,4 +1,6 @@
-﻿using System;
+﻿using JDRIB.ORM;
+using JDRIB.ORM.DAO;
+using System;
 using System.Collections.Generic;
 
 namespace JDRIB
@@ -7,8 +9,18 @@ namespace JDRIB
     {
         static void Main(string[] args)
         {
-            Menu menu = new Menu();
-            menu.start();
+            
+            try
+            {
+                TestDAO testDao = new TestDAO();
+                testDao.find();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            //Menu menu = new Menu();
+            //menu.start();
 
             /* 
              *                  
