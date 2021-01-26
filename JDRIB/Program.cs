@@ -1,5 +1,5 @@
 ﻿using JDRIB.ORM;
-using JDRIB.ORM.DAO;
+using JDRIB.ORM.REPOSITORIES;
 using System;
 using System.Collections.Generic;
 
@@ -9,11 +9,12 @@ namespace JDRIB
     {
         static void Main(string[] args)
         {
-            
+
+
             try
             {
-                TestDAO testDao = new TestDAO();
-                testDao.find();
+                TestRepository testRepository = new TestRepository(new RequestBuilder());
+                testRepository.find(3);
             }
             catch (Exception ex)
             {

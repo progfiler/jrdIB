@@ -22,11 +22,11 @@ namespace JDRIB.ORM
         private static string getConnStr()
         {
             StringBuilder connStr = new StringBuilder();
-            connStr.Append("server=" + server + ";");
-            connStr.Append("user=" + user + ";");
-            connStr.Append("database=" + db + ";");
-            connStr.Append("port=" + port + ";");
-            connStr.Append("password=" + password);
+            connStr.Append($"server={server};");
+            connStr.Append($"user={user};");
+            connStr.Append($"database={db};");
+            connStr.Append($"port={port};");
+            connStr.Append($"password={password}");
             return connStr.ToString();
         }
     }
