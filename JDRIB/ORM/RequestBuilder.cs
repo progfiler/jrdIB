@@ -27,6 +27,41 @@ namespace JDRIB.ORM
             return this;
         }
 
+        internal RequestBuilder Insert(string table)
+        {
+            request.Append($"INSERT INTO {table}");
+            return this;
+        }
+        
+        internal string Values(Dictionary<string, dynamic> obj)
+        {
+            request.Append("(");
+            foreach (var key in obj.Keys)
+            {
+                request.Append($"{key},");
+            }
+            request.Remove((request.Length - 1), 1);
+            request.Append(") VALUES (");
+            foreach (var key in obj.Keys)
+            {
+                if (obj[key] is string)
+                {
+                    request.Append($"'{obj[key]}',");
+                } else if (obj[key] is int)
+                {
+                    request.Append($"{obj[key]},");
+                }
+            }
+            request.Remove((request.Length - 1), 1);
+            request.Append(");");
+            return request.ToString();
+        }
+
+        internal string Delete(string table, int id)
+        {
+            return request.Append($"DELETE FROM {table} where id = {id}").ToString();
+        }
+
         internal string Get()
         {
             return request.ToString();
@@ -41,6 +76,30 @@ namespace JDRIB.ORM
         internal RequestBuilder From(string table)
         {
             request.Append($" FROM {table} ");
+            return this;
+        }
+
+        internal RequestBuilder Update(string table)
+        {
+            request.Append($"UPDATE {table} ");
+            return this;
+        }
+
+        internal RequestBuilder Set(Dictionary<string, dynamic> obj)
+        {
+            request.Append("SET ");
+            foreach (var key in obj.Keys)
+            {
+                if (obj[key] is string)
+                {
+                    request.Append($"{key} = '{obj[key]}',");
+                }
+                else if (obj[key] is int)
+                {
+                    request.Append($"{key} = {obj[key]},");
+                }
+            }
+            request.Remove((request.Length - 1), 1);
             return this;
         }
     }

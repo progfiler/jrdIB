@@ -1,4 +1,5 @@
-﻿using JDRIB.ORM;
+﻿using JDRIB.Entities;
+using JDRIB.ORM;
 using JDRIB.ORM.REPOSITORIES;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,18 @@ namespace JDRIB
         static void Main(string[] args)
         {
 
-
             try
             {
                 TestRepository testRepository = new TestRepository(new RequestBuilder());
-                testRepository.find(3);
+                User user = new User("Jean", "Miche", 2);
+                testRepository.update(user);
+                //int result = testRepository.delete(5);
+                //Console.WriteLine(result);
+                //List<User> user = testRepository.findAll();
+                //user.ForEach(u =>
+                //{
+                //    Console.WriteLine($"L'utilisateur est {u.Name} {u.Lastname} et il a l'ID {u.Id}");
+                //});
             }
             catch (Exception ex)
             {
