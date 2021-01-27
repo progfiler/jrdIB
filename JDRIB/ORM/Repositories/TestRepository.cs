@@ -35,7 +35,7 @@ namespace JDRIB.ORM.REPOSITORIES
             connectionSql.Close();
             return result;
         }
-
+ 
         public override int delete(int id)
         {
             this.openConnection();

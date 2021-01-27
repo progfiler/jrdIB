@@ -50,6 +50,10 @@ namespace JDRIB.ORM
                 } else if (obj[key] is int)
                 {
                     request.Append($"{obj[key]},");
+                } else if (obj[key] is double)
+                {
+                    string val = obj[key].ToString();
+                    request.Append($"{val.Replace(',', '.')},");
                 }
             }
             request.Remove((request.Length - 1), 1);

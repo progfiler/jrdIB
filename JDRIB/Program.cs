@@ -1,5 +1,6 @@
 ﻿using JDRIB.Entities;
 using JDRIB.ORM;
+using JDRIB.ORM.Repositories;
 using JDRIB.ORM.REPOSITORIES;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,9 @@ namespace JDRIB
 
             try
             {
-                TestRepository testRepository = new TestRepository(new RequestBuilder());
-                User user = new User("Jean", "Miche", 2);
-                testRepository.update(user);
+                GameRepository testRepository = new GameRepository(new RequestBuilder());
+                GameEntity game = new GameEntity(1,2,05,24.53);
+                testRepository.create(game);
                 //int result = testRepository.delete(5);
                 //Console.WriteLine(result);
                 //List<User> user = testRepository.findAll();
