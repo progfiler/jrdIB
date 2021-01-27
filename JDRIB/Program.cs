@@ -12,23 +12,6 @@ namespace JDRIB
         static void Main(string[] args)
         {
 
-            try
-            {
-                GameRepository testRepository = new GameRepository(new RequestBuilder());
-                GameEntity game = new GameEntity(1,2,05,24.53);
-                testRepository.create(game);
-                //int result = testRepository.delete(5);
-                //Console.WriteLine(result);
-                //List<User> user = testRepository.findAll();
-                //user.ForEach(u =>
-                //{
-                //    Console.WriteLine($"L'utilisateur est {u.Name} {u.Lastname} et il a l'ID {u.Id}");
-                //});
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
             //Menu menu = new Menu();
             //menu.start();
 

@@ -8,9 +8,9 @@ namespace JDRIB.ORM
     {
         public StringBuilder request = new StringBuilder();
         public RequestBuilder() { }
-
         internal RequestBuilder Select(params string[] values)
         {
+            request.Clear();
             request.Append("SELECT ");
             if (values.Length > 0)
             {
@@ -29,6 +29,7 @@ namespace JDRIB.ORM
 
         internal RequestBuilder Insert(string table)
         {
+            request.Clear();
             request.Append($"INSERT INTO {table}");
             return this;
         }
@@ -54,6 +55,9 @@ namespace JDRIB.ORM
                 {
                     string val = obj[key].ToString();
                     request.Append($"{val.Replace(',', '.')},");
+                } else
+                {
+                    request.Append($"'{obj[key]}',");
                 }
             }
             request.Remove((request.Length - 1), 1);
@@ -63,6 +67,7 @@ namespace JDRIB.ORM
 
         internal string Delete(string table, int id)
         {
+            request.Clear();
             return request.Append($"DELETE FROM {table} where id = {id}").ToString();
         }
 
@@ -73,7 +78,7 @@ namespace JDRIB.ORM
 
         internal RequestBuilder Where(string key, dynamic value, string type = "=")
         {
-            request.Append($"WHERE {key} {type} {value}");
+            request.Append($" WHERE {key} {type} {value}");
             return this;
         }
 
@@ -85,6 +90,7 @@ namespace JDRIB.ORM
 
         internal RequestBuilder Update(string table)
         {
+            request.Clear();
             request.Append($"UPDATE {table} ");
             return this;
         }
@@ -101,6 +107,15 @@ namespace JDRIB.ORM
                 else if (obj[key] is int)
                 {
                     request.Append($"{key} = {obj[key]},");
+                }
+                else if (obj[key] is double)
+                {
+                    string val = obj[key].ToString();
+                    request.Append($"{key} = {val.Replace(',', '.')},");
+                }
+                else
+                {
+                    request.Append($"{key} = '{obj[key]}',");
                 }
             }
             request.Remove((request.Length - 1), 1);
