@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JDRIB.ORM.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -68,7 +69,12 @@ namespace JDRIB
             bool select = true;
             do
             {
-                personnages.Add(PersonnagesFactory.InitializeOnePersonnage());
+                // On crée le player 
+                Personnages personnage = PersonnagesFactory.InitializeOnePersonnage();
+                // On sauvegarde en BDD 
+                PlayerRepository playerRepository = new PlayerRepository(new ORM.RequestBuilder());
+                // playerRepository.create(personnages);
+                personnages.Add(personnage);
                 select = addNewPerson();
             } while (select);
         }

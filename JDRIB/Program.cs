@@ -12,8 +12,8 @@ namespace JDRIB
         static void Main(string[] args)
         {
 
-            //Menu menu = new Menu();
-            //menu.start();
+            Menu menu = new Menu();
+            menu.start();
 
             /* 
              *                  
